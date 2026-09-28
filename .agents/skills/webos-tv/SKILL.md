@@ -5,7 +5,12 @@ description: Como planejar, abrir, testar e depurar apps webOS TV (LG) — mapa 
 
 # webOS TV: documentação oficial, Simulator, debug e limites
 
-O ambiente é WSL Ubuntu, mas o Simulator e o Chrome rodam no **Windows**. Comandos que usam ares-cli precisam de `source ~/.bashrc &&` (senão resolvem para binários do Windows).
+Há dois ambientes, e os passos de Simulator mudam entre eles:
+
+- **WSL local** (padrão das seções abaixo): o Simulator e o Chrome rodam no **Windows**. Comandos que usam ares-cli precisam de `source ~/.bashrc &&` (senão resolvem para binários do Windows).
+- **Claude Code na nuvem** (`CLAUDE_CODE_REMOTE=true`, container Linux sem tela): siga `references/cloud-linux.md` em vez das seções de Simulator/debug abaixo. As seções de documentação e de limites do Simulator valem igual.
+
+Em qualquer ambiente, o Simulator recusa abrir um app cujo `appinfo.json` não tenha `id`, `title`, `type`, `main`, `icon` e `version`, ou cujos arquivos `main`/`icon`/`largeIcon` não existam.
 
 ## Antes de começar um projeto novo, ou adicionar/mudar uma feature
 
